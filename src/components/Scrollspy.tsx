@@ -24,7 +24,7 @@ export interface ScrollspyProps {
   itemContainerClassName?: string;
   activeItemClassName?: string;
   itemClassName?: string;
-  onClick?: any
+  itemOnClick?: any
   containerElement?: JSX.Element;
   itemElement?: JSX.Element;
   includeParentClasses?: boolean;
@@ -110,7 +110,7 @@ export default class Scrollspy extends React.Component<
   }
 
   private renderItems() {
-    const { itemElement, activeItemClassName, itemClassName, onClick } = this.props;
+    const { itemElement, activeItemClassName, itemClassName, itemOnClick } = this.props;
     return this.state.items.map((item, k) => {
       return itemElement
         ? React.cloneElement(itemElement, {
@@ -123,8 +123,8 @@ export default class Scrollspy extends React.Component<
               item.inView ? activeItemClassName : null
             ),
             onClick: () => {
-              if(onClick) {
-                onClick()
+              if(itemOnClick) {
+                itemOnClick(item)
               }
               this.scrollTo(item.element)
             },
