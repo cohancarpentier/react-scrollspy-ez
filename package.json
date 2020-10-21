@@ -1,10 +1,13 @@
 {
-  "name": "react-scrollspy-ez",
+  "name": "cohan-react-scrollspy-ez",
   "version": "1.0.2",
   "description": "simple scrollspy component for react",
   "author": "telega",
   "license": "MIT",
-  "repository": "telega/react-scrollspy-ez",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cohancarpentier/react-scrollspy-ez.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
@@ -58,5 +61,12 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/cohancarpentier/react-scrollspy-ez/issues"
+  },
+  "homepage": "https://github.com/cohancarpentier/react-scrollspy-ez#readme",
+  "directories": {
+    "example": "example"
+  }
 }
