@@ -71,13 +71,22 @@ export default class Scrollspy extends React.Component<
       .filter(item => item);
 
     const firstTrueItem = items.find(item => !!item && item.inView);
+    let isAtBottomOfPage = (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight
 
     if (!firstTrueItem) {
       return; // dont update state
     } else {
-      const update = items.map(item => {
-        return { ...item, inView: item === firstTrueItem } as SpyItem;
-      });
+      let update
+
+      if(isAtBottomOfPage) {
+        update = items.map((item, i) => {
+          return { ...item, inView: i === items.length - 1 ? true : false } as SpyItem;
+        });
+      } else {
+        update = items.map(item => {
+          return { ...item, inView: item === firstTrueItem } as SpyItem;
+        });
+      }
 
       this.setState({ items: update });
     }
