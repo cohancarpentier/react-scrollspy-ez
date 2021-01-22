@@ -71,7 +71,8 @@ export default class Scrollspy extends React.Component<
       .filter(item => item);
 
     const firstTrueItem = items.find(item => !!item && item.inView);
-    let isAtBottomOfPage = (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight
+    const mainDiv = document.getElementById('main')
+    let isAtBottomOfPage = mainDiv ? mainDiv.scrollTop === (mainDiv.scrollHeight - mainDiv.offsetHeight) : (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight
 
     if (!firstTrueItem) {
       return; // dont update state
